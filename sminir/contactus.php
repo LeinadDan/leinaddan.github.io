@@ -33,18 +33,18 @@ include 'header.php';
 		
 					<div class="form-group">
 						<label for="txtname">Name (required)</label>
-						<input type="text" name="txtname" id="txtname" class="form-	control" required >
+						<input type="text" name="txtname" id="txtname" class="form-control" required >
 					</div>
 					<div class="form-group">
 						<label for="txtemail">Email (required)</label>
-						<input type="email" name="txtemail" id="txtemail" class="	form-control" required>
+						<input type="email" name="txtemail" id="txtemail" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label for="txtmessage">Message:</label>
-						<textarea class="form-control" rows="4" name="txtmessage" id	="txtmessage"></textarea>
+						<textarea class="form-control" rows="4" name="txtmessage" id="txtmessage"></textarea>
 					</div>
 					<div class="form-group">
-						<button class="btn btn-default" type="submit" name="submit">	Submit</button>
+						<button class="btn btn-default" type="submit" name="submit">Submit</button>
 					</div>
 					
 				</form>
