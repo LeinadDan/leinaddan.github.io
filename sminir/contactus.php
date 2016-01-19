@@ -21,7 +21,7 @@ include 'header.php';
 	<div class="row">
 		<div class="col-sm-8">
 			<h4>Address</h4>
-			<p align="left">If you have any questions, comments or concerns about 	our services, please don't hesitate to contact us. We ensure that we 	will make your stay here an enjoyable and pleasant experience.</p>
+			<p align="left">If you have any questions, comments or concerns about our services, please don't hesitate to contact us. We ensure that we will make your stay here an enjoyable and pleasant experience.</p>
 			
 			<strong>Telephone:</strong> <br>
 			<strong>Mobile:</strong> (+63)916 - 6175754<br>
