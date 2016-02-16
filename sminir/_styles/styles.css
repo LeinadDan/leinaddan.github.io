@@ -1,0 +1,51 @@
+/* Sticky Back to top button styles
+----------------------------------------------*/
+.back-to-top {
+	display: none;
+	position: fixed;
+	bottom: 5em;
+	right: 15em;
+	text-decoration: none;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.3);
+	font-size: 12px;
+	padding: 1em;
+}
+
+.back-to-top:hover {
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.footer .container {
+  width: auto;
+  max-width: 80%;
+  padding: 0 15px;
+}
+.footer .container .text-muted {
+  margin: 20px 0;
+}

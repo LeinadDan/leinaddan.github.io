@@ -10,7 +10,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="index.php"><img class="img-responsive" src="_images/logo.jpg" width="25px"></a>
+						<a class="navbar-brand" href="index.php"><img class="img-responsive" src="_images/logo.png" width="30px" style="margin-top: -7px;"></a>
 					</div>
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
@@ -23,17 +23,7 @@
 							<li><a href="contactus.php">Contacts</a></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-								Welcome, Guest
-								<span class="caret"></span>
-								</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Account</a></li>
-									<li><a href="#">Settings</a></li>
-									<li><a href="#">Logout</a></li>
-								</ul>
-							</li>
+							<?php echo $nav_right; ?>
 						</ul>
 					</div>
 				</div>

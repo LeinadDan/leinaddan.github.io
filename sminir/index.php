@@ -17,11 +17,10 @@ include 'header.php';
 	<div class="carousel-inner" role="listbox">
 		<!--item #1-->
 		<div class="item active">
-			<img class="first-slide" src="_images/slide1.jpg" alt="First Slide">
+			<img class="first-slide" src="_images/img/cover.jpeg" alt="First Slide">
 			<div class="container">
 				<div class="carousel-caption">
-					<h1>Flower</h1>
-					<p>Caption Text is placed here.</p>
+					
 				</div>
 			</div>
 		</div>
@@ -63,6 +62,7 @@ include 'header.php';
 	<!-- main content-->
 	<div class="col-sm-8">
 		<h2>Body</h2>
+		<hr>
 		<p>This is a placeholder.</p>
 		<p>A CMS will probably go here. The CMS will mostly be used for announcements and updates.</p>
 	</div>
@@ -78,11 +78,11 @@ include 'header.php';
 
 
 <!--carousel frame-->
-<svg xmlns ="http://www.w3.org/2000/svg" width="500" height="350" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">
+<svg xmlns ="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;">
 	<defs>
 		<style type="text/css"></style>
 	</defs>
-	<text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">350x500</text>
+	<text x="0" y="25" style="font-weight:bold;font-size:25pt;font-family:Arial, Helvetica, Open Sans, sans-serif">500x500</text>
 </svg>
 <!--carousel frame end-->
 </body>
