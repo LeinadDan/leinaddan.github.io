@@ -7,7 +7,7 @@ $name = urldecode($_GET['txtname']);
 $message = urldecode(htmlspecialchars_decode($_GET['txtmessage'])) ;
 // When we unzipped PHPMailer, it unzipped to
 // public_html/PHPMailer_5.2.0
-require('\xampp\htdocs\PHPMailer_5.2.0\class.PHPMailer.php');
+require(dirname(__FILE__) .'/PHPMailer_5.2.0/class.phpmailer.php');
 
 $mail = new PHPMailer(true);
 try{

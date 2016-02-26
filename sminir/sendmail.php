@@ -2,12 +2,12 @@
 
 // $email and $message are the data that is being
 // posted to this page from our html contact form
-$email = $_REQUEST['txtemail'] ;
-$name = $_REQUEST['txtname'];
-$message = $_REQUEST['txtmessage'] ;
+$email = urldecode($_GET['txtemail']) ;
+$name = urldecode($_GET['txtname']);
+$message = urldecode(htmlspecialchars_decode($_GET['txtmessage'])) ;
 // When we unzipped PHPMailer, it unzipped to
 // public_html/PHPMailer_5.2.0
-require('public_html/PHPMailer_5.2.0\class.PHPMailer.php');
+require(dirname(__FILE__) .'/PHPMailer_5.2.0/class.phpmailer.php');
 
 $mail = new PHPMailer(true);
 try{
@@ -62,7 +62,8 @@ if(!$mail->Send())
 {
    exit;
 }
-header("Location: contactus.php?message=1#qcontact");
+$message = urlencode(htmlspecialchars($message));
+header("Location: emailsent_customer.php?txtemail=". $email."&txtname=".$name."&txtmessage=".$message);
 
 }catch (phpmailerException $e) {
   $error = $e->errorMessage(); //Pretty error messages from PHPMailer
