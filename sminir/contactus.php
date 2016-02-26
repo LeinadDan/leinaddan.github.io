@@ -4,6 +4,25 @@ $style = "_styles/navbar.css";
 include 'head.php';
 include 'header.php';
 ?>
+<script type="text/javascript">
+
+  function checkForm(form)
+  {
+
+    if(!form.captcha.value.match(/^\d{5}$/)) {
+      alert('Please enter the CAPTCHA digits in the box provided');
+      form.captcha.focus();
+      return false;
+    }
+
+    return true;
+  }
+  	function counter(id) 
+	{
+ 		document.getElementById('count').innerHTML = "Characters left: " + (1000 - id.value.length);
+	};
+
+</script>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-8">
@@ -60,7 +79,7 @@ include 'header.php';
 					} 
 				?>
 			</div>
-				<form id="quick-contact" method="post" class="form" action="captcha_val.php">
+				<form id="quick-contact" method="post" class="form" action="captcha_val_contact.php">
 		
 					<div class="form-group">
 						<label for="txtname">Name (required)</label>
@@ -72,7 +91,9 @@ include 'header.php';
 					</div>
 					<div class="form-group">
 						<label for="txtmessage">Message:</label>
-						<textarea class="form-control" rows="4" name="txtmessage" id="txtmessage"></textarea>
+						<textarea class="form-control" rows="8" name="txtmessage" id="txtmessage" maxlength="1000" onkeyup="counter(txtmessage);"></textarea>
+						<br>
+						<div id="count" style="margin-top:-15px;">Characters left: 1000</div>
 					</div>
 					<div class="form-group">
 						<label>Captcha: </label>
@@ -103,22 +124,7 @@ include 'header.php';
 <!--footer end-->
 
 </body>
+
+
+
 </html>
-<script type="text/javascript">
-
-  function checkForm(form)
-  {
-    ...
-
-    if(!form.captcha.value.match(/^\d{5}$/)) {
-      alert('Please enter the CAPTCHA digits in the box provided');
-      form.captcha.focus();
-      return false;
-    }
-
-    ...
-
-    return true;
-  }
-
-</script>

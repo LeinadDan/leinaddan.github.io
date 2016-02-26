@@ -7,7 +7,7 @@ $name = $_REQUEST['txtname'];
 $message = $_REQUEST['txtmessage'] ;
 // When we unzipped PHPMailer, it unzipped to
 // public_html/PHPMailer_5.2.0
-require('public_html/PHPMailer_5.2.0\class.PHPMailer.php');
+require('http://sminir-leinaddan.rhcloud.com/PHPMailer_5.2.0\class.PHPMailer.php');
 
 $mail = new PHPMailer(true);
 try{
@@ -38,7 +38,7 @@ $mail->From = $email;
 $mail->FromName = "Quick Contact";
 
 // below we want to set the email address we will be sending our email to.
-$mail->AddAddress("testmail.sminir@gmail.com","Quick Contact");
+$mail->AddAddress($email,$name);
 
 // set word wrap to 50 characters
 $mail->WordWrap = 50;
@@ -51,12 +51,8 @@ $mail->Subject = "Quick Contact Message from ".$name;
 // on our contact us page. We set this variable at
 // the top of this page with:
 // $message = $_REQUEST['message'] ;
-$mail->Body   = "<b>Name: </b>".$name.
-				"<br /><b>Email Address: </b>".$email.
-				"<br /><b>Message: </b><br /><hr>".nl2br($message);
-$mail->AltBody= "Name: ".$name.
-				"/nEmail Address: ".$email.
-				"/nMessage: <br /><hr>".$message;
+$mail->Body    = $message;
+$mail->AltBody = $message;
 
 if(!$mail->Send())
 {

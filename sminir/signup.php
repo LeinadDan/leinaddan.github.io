@@ -4,6 +4,37 @@ $style = "_styles/navbar.css";
 include 'head.php';
 include 'header.php';
 ?>
+<script type="text/javascript">
+function pass_str(field, output) {
+    pass_buf_value = document.getElementById(field).value;
+    pass_level = 0;
+    if (pass_buf_value.match(/[a-z]/g)) {
+        pass_level++;
+    }
+    if (pass_buf_value.match(/[A-Z]/g)) {
+        pass_level++;
+    }
+    if (pass_buf_value.match(/[0-9]/g)) {
+        pass_level++;
+    }
+    if (pass_buf_value.length >= 20) {
+        pass_level++;
+    }
+    output_val = '';
+    switch (pass_level) {
+        case 1: output_val='Weak'; break;
+        case 2: output_val='Normal'; break;
+        case 3: output_val='Strong'; break;
+        case 4: output_val='Very strong'; break;
+        default: output_val='Very weak'; break;
+    }
+    if (document.getElementById(output).value != pass_level) {
+        document.getElementById(output).value = pass_level;
+        document.getElementById(output).innerHTML = output_val;
+    }
+    return 1;
+}
+</script>
 <div class="container">
 	<div class="row">
 		<div class="col-sm-6 col-sm-offset-3">
@@ -15,26 +46,43 @@ include 'header.php';
 			<div  id="result">
 				<?php 
 					if(isset($_GET['error'])){
-						echo '<div class="alert alert-warning">Wrong Username/Password.</div>';
+						$error = $_GET['error'];
+						switch ($error) {
+							case '1':
+								echo '<div class="alert alert-warning">Email Address is already in use. Please log in.</div>';
+								break;
+							case '2':
+								echo '<div class="alert alert-warning">Password must be at least 6 characters in length.</div>';
+								break;
+							case '3':
+								echo '<div class="alert alert-warning">Captcha is incorrect.</div>';
+								break;
+						}
 					} 
 				?>
 			</div>
-			<form id="signup" method="post" action="#">
+			<form id="signup" name="signup" method="post" onSubmit="return formValidation();">
 				<hr>
 				<h3>Login Details</h3>
 				<div class="form-group">
-					<label for="txtuser">Username: </label>
-					<input type="text" name="txtuser" id="txtuser" class="form-control" required >
+					<label for="txtemail">Email Address: </label>
+					<input type="email" name="txtemail" id="txtemail" class="form-control" required >
+				</div>
+				<div class="form-group">
+					<label for="txtconemail">Confirm Email Address: </label>
+					<input type="email" name="txtconemail" id="txtconemail" class="form-control" required >
 				</div>
 				<div class="form-group">
 					<label for="txtpass">Password: </label>
-					<input type="password" name="txtpass" id="txtpass" class="form-control" required >
+					<input type="password" name="txtpass" id="txtpass" class="form-control" onkeyup="pass_str('txtpass','output');" required >Password Strength: <span id="output" style="font-weight:bold;"></span>
 				</div>
 				<div class="form-group">
 					<label for="txtrepass">Confirm Password: </label>
 					<input type="password" name="txtrepass" id="txtrepass" class="form-control" required >
 				</div>
+				<br>
 				<hr>
+				<br>
 				<h3>Personal Information</h3>
 				<div class="form-group">
 					<label for="txtfname">First Name: </label>
@@ -44,21 +92,14 @@ include 'header.php';
 					<label for="txtlname">Last Name: </label>
 					<input type="text" name="txtlname" id="txtlname" class="form-control" required >
 				</div>
-				<div class="form-group">
-					<label for="txtmi">Middle Initial: </label>
-					<input type="text" name="txtmi" id="txtmi" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="txtemail">Email Address: </label>
-					<input type="email" name="txtemail" id="txtemail" class="form-control" required >
-				</div>
+				
 				<div class="form-group">
 					<label for="txtmobile">Mobile Number: </label>
 					<input type="text" name="txtmobile" id="txtmobile" class="form-control" required >
 				</div>
 				<div class="form-group">
 					<label for="txtstreet">Street Address: </label>
-					<input type="text" name="txtstreet" id="txtsreet" class="form-control" required >
+					<input type="text" name="txtstreet" id="txtsreet" class="form-control">
 				</div>
 				<div class="form-group">
 					<label for="txtcity">City: </label>
@@ -75,8 +116,16 @@ include 'header.php';
 					<p><input type="text" class="form-control" size="6" maxlength="5" name="captcha" value=""><br>
 					
 				</div>
+
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" value="true">
+						I agree to the Terms and Policies...
+					</label>
+				</div>
+
 				<div class="form-group">
-					<button class="btn btn-default" name="submit">Submit</button>
+					<button type="submit" class="btn btn-default" name="submit">Submit</button>
 				</div>
 
 			</form>
@@ -91,4 +140,38 @@ include 'header.php';
 
 
 </body>
+
+<script type="text/javascript">
+function check_v_pass(field, output) {
+    pass_buf_value = document.getElementById(field).value;
+    pass_level = 0;
+    if (pass_buf_value.match(/[a-z]/g)) {
+        pass_level++;
+    }
+    if (pass_buf_value.match(/[A-Z]/g)) {
+        pass_level++;
+    }
+    if (pass_buf_value.match(/[0-9]/g)) {
+        pass_level++;
+    }
+    if (pass_buf_value.length < 5) {
+        if(pass_level >= 1) pass_level--;
+    } else if (pass_buf_value.length >= 20) {
+        pass_level++;
+    }
+    output_val = '';
+    switch (pass_level) {
+        case 1: output_val='Weak'; break;
+        case 2: output_val='Normal'; break;
+        case 3: output_val='Strong'; break;
+        case 4: output_val='Very strong'; break;
+        default: output_val='Very weak'; break;
+    }
+    if (document.getElementById(output).value != pass_level) {
+        document.getElementById(output).value = pass_level;
+        document.getElementById(output).innerHTML = output_val;
+    }
+    return 1;
+}
+</script>
 </html>

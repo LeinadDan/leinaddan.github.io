@@ -3,7 +3,7 @@
 	session_start();
 	include 'conn.php';
 
-	$user = mysqli_real_escape_string($con,$_POST['txtuser']);
+	$user = mysqli_real_escape_string($con,$_POST['txtemail']);
 	$raw_pass = mysqli_real_escape_string($con,$_POST['txtpass']);
 	$pass = md5($raw_pass);
 

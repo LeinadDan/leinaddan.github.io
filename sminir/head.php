@@ -24,7 +24,7 @@ if (!isset($_SESSION['user_name'])) {
 				</li>';
   }
   else{
-  	$nav_right='<li><a href="login.php">Login</a></li>
+  	$nav_right='<li><a href="login.php"><b>Login</b></a></li>
   				<li><a href="signup.php">Signup</a></li>';
   }
 ?>
@@ -39,5 +39,6 @@ if (!isset($_SESSION['user_name'])) {
 	  <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
 	  <script src="bootstrap-3.3.5-dist/jquery/jquery-1.11.3.min.js"></script>
 	  <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+	  <script src="form_validation.js"></script>
 	<!--libraries end-->
 </head>

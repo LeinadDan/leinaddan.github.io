@@ -11,36 +11,51 @@ include 'header.php';
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 		<li data-target="#myCarousel" data-slide-to="1" class></li>
 		<li data-target="#myCarousel" data-slide-to="2" class></li>
+		<li data-target="#myCarousel" data-slide-to="3" class></li>
+		<li data-target="#myCarousel" data-slide-to="4" class></li>
 	</ol>
 	<!--carousel slide indicator end-->
 	<!-- carousel slides declaration-->
 	<div class="carousel-inner" role="listbox">
 		<!--item #1-->
 		<div class="item active">
-			<img class="first-slide" src="_images/img/cover.jpeg" alt="First Slide">
+			<img class="first-slide" src="_images/img/cover_crop.jpeg" alt="First Slide">
 			<div class="container">
 				<div class="carousel-caption">
-					
+					<!-- <h1>Desert</h1>
+					<p>Caption Text is placed here.</p> -->
 				</div>
 			</div>
 		</div>
 		<!--item #2-->
 		<div class="item">
-			<img class="second-slide" src="_images/slide2.jpg" alt="Second Slide">
+			<img class="second-slide" src="_images/img/065_crop.jpeg" alt="Second Slide">
 			<div class="container">
 				<div class="carousel-caption">
-					<h1>Desert</h1>
-					<p>Caption Text is placed here.</p>
 				</div>
 			</div>
 		</div>
 		<!--item #3-->
 		<div class="item">
-			<img class="third-slide" src="_images/slide3.jpg" alt="Third Slide">
+			<img class="third-slide" src="_images/img/066_crop.jpeg" alt="Third Slide">
 			<div class="container">
 				<div class="carousel-caption">
-					<h1>Flower 2</h1>
-					<p>Caption Text is placed here.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="item">
+			<img class="fourth-slide" src="_images/img/057.jpeg" alt="Fourth Slide">
+			<div class="container">
+				<div class="carousel-caption">
+				</div>
+			</div>
+		</div>
+
+		<div class="item">
+			<img class="fourth-slide" src="_images/img/059_crop.jpeg" alt="Fifth Slide">
+			<div class="container">
+				<div class="carousel-caption">
 				</div>
 			</div>
 		</div>

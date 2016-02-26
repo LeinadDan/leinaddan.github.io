@@ -2,12 +2,12 @@
 
 // $email and $message are the data that is being
 // posted to this page from our html contact form
-$email = $_REQUEST['txtemail'] ;
-$name = $_REQUEST['txtname'];
-$message = $_REQUEST['txtmessage'] ;
+$email = urldecode($_GET['txtemail']) ;
+$name = urldecode($_GET['txtname']);
+$message = urldecode(htmlspecialchars_decode($_GET['txtmessage'])) ;
 // When we unzipped PHPMailer, it unzipped to
 // public_html/PHPMailer_5.2.0
-require('public_html/PHPMailer_5.2.0\class.PHPMailer.php');
+require('\xampp\htdocs\PHPMailer_5.2.0\class.PHPMailer.php');
 
 $mail = new PHPMailer(true);
 try{
@@ -38,25 +38,21 @@ $mail->From = $email;
 $mail->FromName = "Quick Contact";
 
 // below we want to set the email address we will be sending our email to.
-$mail->AddAddress("testmail.sminir@gmail.com","Quick Contact");
+$mail->AddAddress($email,$name);
 
 // set word wrap to 50 characters
 $mail->WordWrap = 50;
 // set email format to HTML
 $mail->IsHTML(true);
 
-$mail->Subject = "Quick Contact Message from ".$name;
+$mail->Subject = "Quick Contact Sent";
 
 // $message is the user's message they typed in
 // on our contact us page. We set this variable at
 // the top of this page with:
 // $message = $_REQUEST['message'] ;
-$mail->Body   = "<b>Name: </b>".$name.
-				"<br /><b>Email Address: </b>".$email.
-				"<br /><b>Message: </b><br /><hr>".nl2br($message);
-$mail->AltBody= "Name: ".$name.
-				"/nEmail Address: ".$email.
-				"/nMessage: <br /><hr>".$message;
+$mail->Body   = "Hi there!<br />Thank you very much for contacting us. We will try to respond to you as soon as possible.<br /><br />Here is the message you sent us: <br /><hr>".nl2br($message)."<hr>";
+$mail->AltBody = "Hi there!/nThank you very much for contacting us. We will try to respond to you as soon as possible./n/nHere is the message you sent us: /n------------------".$message."------------------";
 
 if(!$mail->Send())
 {
@@ -68,6 +64,7 @@ header("Location: contactus.php?message=1#qcontact");
   $error = $e->errorMessage(); //Pretty error messages from PHPMailer
   if(strpos($error, "Invalid address") !== false){
   	header("Location:contactus.php?error=1#qcontact");
+  	echo $error;
   }
 
 } catch (Exception $e) {
